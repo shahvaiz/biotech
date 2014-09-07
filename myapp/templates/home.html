@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block userform %}
+	<section>
+		<h2>Enter Protein Information Below</h2>
+		<form action = '/peptides/' method='post'>{% csrf_token %}
+		<!-- https://docs.djangoproject.com/en/dev/ref/contrib/csrf/ -->
+		<div class = "box">
+			<label for = "ruletype">Enzyme</label><br>
+			<select name = "ruletype" id = "ruletype" class = 'choices'>
+	            <option value = "trypsin">Trypsin</option>
+	            <option value = "lysc">Lyscene</option>
+	            <option value = "gluc">GluC</option>
+        	</select> 
+		</div><!-- end of box -->
+
+		<div class = "box">
+			<label for = "missedcleavages">Missed Cleavages</label><br>
+			<select name = "missedcleavages" id = "missedcleavages" class = 'choices'>
+	            <option value = "0">0</option>
+	            <option value = "1">1</option>
+	            <option value = "2">2</option>
+	            <option value = "3">3</option>
+	            <option value = "4">4</option>
+	            <option value = "5">5</option>
+        	</select>
+		</div><!-- end of box -->
+
+		<div class = "box">
+			<label for = "MinLength">Minimum Length</label>
+			<input type = "text" name = "MinLength" id = "MinLength">
+		</div><!-- end of box -->
+
+		<div class = "box">
+			<label for = "MaxLength">Maximum Length</label>
+			<input type = "text" name = "MaxLength" id = "MaxLength">
+		</div><!-- end of box -->
+
+		<div class = "box">
+			<label for = "MinWeight">Minimum Weight</label>
+			<input type = "text" name = "MinWeight" id = "MinWeight">
+		</div><!-- end of box -->
+
+		<div class = "box">
+			<label for = "MaxWeight">Maximum Weight</label>
+			<input type = "text" name = "MaxWeight" id = "MaxWeight">
+		</div><!-- end of box -->
+
+		<div class = "box-wide">
+			<label for = "enzyme">Sequence</label>
+			<textarea name = "enzyme" rows="8" cols="39" id = "enzyme"></textarea>
+		</div><!-- end of box-wide -->
+
+		<input type = "submit" id = "button" value = ""/>
+
+	</section>
+
+	<section>
+		<h2>More Information</h2>
+		<h3>Enzyme Rules</h3>
+		<p>Trypsin: Cleaves at C-terminal side of K or R; Exception is when P is C-terminal to K or R</p>
+		<p>Lys C: Cleaves at C-terminal side of K; No exceptions</p>
+		<p>Glu C (Bicarbonate): Cleaves at C-terminal side of E; Exception is when P is C-terminal to E or when E is C-terminal to E</p>
+		<h3>Sample Sequence (Copy & Paste)</h3>
+		<p>PTDDDDKIV GGYTCAANSI PYQVSLNSGS HFCGGSLINS QWVVSAAHCY KSRIQVRLGE HNIDVLEGNE QFINAAKIIT HPNFNGNTLD NDIMLIKLSS PATLNSRVAT VSLPRSCAAA GTECLISGWG NTKSSGSSYP SLLQCLKAPV LSDSSCKSSY PGQITGNMIC VGFLEGGKDS CQGDSGGPVV CNGQLQGIVS WGYGCAQKNK PGVYTKVCNY VNWIQQTIAA N<p>
+	</section>
+{% endblock userform %}
