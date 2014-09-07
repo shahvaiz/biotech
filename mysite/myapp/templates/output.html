@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block userform %}
+
+	<table>
+		<caption>User Inputs</caption>
+		<tr>
+			<td class = 'coltitle'>Sequence</td>
+			<td>{{ enzyme|slice:'0:70' }} {{ enzyme|slice:'71:141' }} {{ enzyme|slice:'213::' }} </td>
+		</tr>
+		<tr>
+			<td class = 'coltitle'>Enzyme</td>
+			<td>{{ ruletype }}</td>
+		</tr>
+		<tr>
+			<td class = 'coltitle'>Missed Cleavages</td>
+			<td>{{ MissedCleavages }}</td>
+		</tr>
+		<tr>
+			<td class = 'coltitle'>Minimum Length</td>
+			<td>{{ MinLength }}</td>
+		</tr>
+		<tr>
+			<td class = 'coltitle'>Maximum Length</td>
+			<td>{{ MaxLength }}</td>
+		</tr>
+		<tr>
+			<td class = 'coltitle'>Minimum Weight</td>
+			<td>{{ MinWeight }} </td>
+		</tr>
+		<tr>
+			<td class = 'coltitle'>Maximum Weight</td>
+			<td>{{ MaxWeight }} </td>
+		</tr>
+	</table>
+
+	<table>
+		<caption>Table of Peptides</caption>
+		<tr>
+			<th>Enzyme</th>
+			<th>Length</th>
+			<th>Weight</th>
+			<th>M.C.</th>
+		</tr>
+
+		{% for x in PeptideTable %}
+			{% if x.1 >= MinLength and  x.1 <= MaxLength and  x.2 >= MinWeight and  x.2 <= MaxWeight %}
+				{% if forloop.counter|divisibleby:2 %}
+					<tr class = "lightblue">
+				{% else %}
+					<tr class = "darkblue">
+				{% endif %}
+					<td class = "colwide">{{ x.0|slice:'0:49' }} {{ x.0|slice:'50::' }}</td>
+					<td class = "colnarrow">{{ x.1 }}</td>
+					<td class = "colnarrow">{{ x.2 }}</td>
+					<td class = "colnarrow">{{ x.3 }}</td>
+				</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+
+{% endblock userform %}

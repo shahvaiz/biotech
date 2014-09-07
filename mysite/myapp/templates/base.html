@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Biotech Protein Simulation</title>
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/design.css" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div id = "container">
+			<header>
+				<a href = '/welcome/'><h1>peptide simulation</h1></a>
+				<img src = "{{ STATIC_URL }}images/icons.jpg" width = '779' height = '79'>
+			</header><!-- end of header -->
+
+
+			{% block userform %}
+			{% endblock userform %}
+
+		</div><!-- end of container -->
+		<footer>
+			<div id = "copyright">
+				<p>Created in HTML5</p>
+			</div>
+		</footer>
+	</body>
+</html>
