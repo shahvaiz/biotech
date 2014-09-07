@@ -1,0 +1,6 @@
+venv
+*.pyc
+staticfiles
+*.sublime-workspace
+*.sublime-project
+*.DS_Store
