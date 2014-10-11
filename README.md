@@ -16,4 +16,4 @@ A user inputs a protein sequence (an amino acid string comprised of the letters 
 [ [peptide1, length, weight, missed cleavages], [peptide2, length, weight, missed cleavages ], … ]
 ```
 - The array is displayed in a dynamic HTML table, which creates a row for each list in the peptide table.
-- The application's accuracy has been validated by comparing the results to expasy.org's Peptide Cutter webpage (http://expasy.org/tools/peptidecutter/). The results are identical.
+- The accuracy of this program has been validated by comparing the results to expasy.org's Peptide Cutter webpage (http://expasy.org/tools/peptidecutter/). The results are identical.
