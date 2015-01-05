@@ -22,3 +22,6 @@ urlpatterns = patterns('',
         (r'^peptides/$', amino),
         (r'^admin/',include(admin.site.urls)),
 )
+
+from django.conf import settings
+from django.conf.urls import include, patterns, url
